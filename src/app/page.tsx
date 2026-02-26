@@ -73,8 +73,10 @@ const appScreenshots = [
   },
 ];
 
+const HEADER_TOP_THRESHOLD = 80;
+
 export default function Home() {
-  const [headerTextColor, setHeaderTextColor] = useState("text-white");
+  const [isAtTop, setIsAtTop] = useState(true);
   const [scrollingTexts, setScrollingTexts] = useState<Array<{
     direction: string;
     animationClass: string;
@@ -83,6 +85,15 @@ export default function Home() {
     delay: number;
     vertical?: boolean;
   }>>([]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsAtTop(window.scrollY < HEADER_TOP_THRESHOLD);
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     // Fixed 2 scrolling texts with specific directions
@@ -107,73 +118,74 @@ export default function Home() {
     setScrollingTexts(selected);
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll("section");
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionBottom = sectionTop + sectionHeight;
-
-        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-          // Check if section has white background
-          const hasWhiteBg = section.classList.contains("bg-white");
-          if (hasWhiteBg) {
-            setHeaderTextColor("text-[#8a7af8]");
-          } else {
-            setHeaderTextColor("text-white");
-          }
-        }
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-
   return (
     <div className="text-slate-900">
-      <header className={`fixed top-0 left-0 right-0 z-[100] backdrop-blur-md py-4 ${headerTextColor} transition-colors duration-300`}>
+      <header
+        className={`fixed top-0 left-0 right-0 z-[100] backdrop-blur-md py-4 transition-all duration-300 ${
+          isAtTop
+            ? "bg-transparent text-white"
+            : "bg-white/90 text-slate-800 shadow-sm"
+        }`}
+      >
         <div className="mx-auto w-full max-w-6xl px-4">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="flex flex-1 items-center">
               <div className="flex items-center gap-2">
                 {/* X symbol with rounded ends */}
-                <svg className="w-8 h-8 x-logo-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  className={`w-8 h-8 x-logo-spin ${isAtTop ? "text-white" : "text-slate-800"}`}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="4.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <line x1="6" y1="6" x2="18" y2="18" />
                   <line x1="18" y1="6" x2="6" y2="18" />
                 </svg>
                 {/* Chat text */}
-                <span className="font-extrabold text-xl">Chat</span>
+                <span className={`font-extrabold text-xl ${isAtTop ? "text-white" : "text-slate-800"}`}>
+                  Chat
+                </span>
               </div>
             </div>
-            <nav className={`flex flex-1 items-center justify-end gap-6 text-base font-medium ${headerTextColor === "text-white" ? "text-white/90" : "text-[#8a7af8]/90"} transition-colors duration-300`}>
-              <a href="#home" className={`${headerTextColor === "text-white" ? "hover:text-white" : "hover:text-[#8a7af8]"} transition-colors`}>
+            <nav
+              className={`flex flex-1 items-center justify-end gap-6 text-base font-medium transition-colors duration-300 ${
+                isAtTop ? "text-white/90" : "text-slate-700"
+              }`}
+            >
+              <a
+                href="#home"
+                className={isAtTop ? "hover:text-white" : "hover:text-slate-900"}
+              >
                 Home
               </a>
-              <a href="#experience" className={`${headerTextColor === "text-white" ? "hover:text-white" : "hover:text-[#8a7af8]"} transition-colors`}>
+              <a
+                href="#experience"
+                className={isAtTop ? "hover:text-white" : "hover:text-slate-900"}
+              >
                 Experience
               </a>
-              <a href="#about" className={`${headerTextColor === "text-white" ? "hover:text-white" : "hover:text-[#8a7af8]"} transition-colors`}>
+              <a
+                href="#about"
+                className={isAtTop ? "hover:text-white" : "hover:text-slate-900"}
+              >
                 Technical
               </a>
-              <a href="#features" className={`${headerTextColor === "text-white" ? "hover:text-white" : "hover:text-[#8a7af8]"} transition-colors`}>
+              <a
+                href="#features"
+                className={isAtTop ? "hover:text-white" : "hover:text-slate-900"}
+              >
                 For You
               </a>
-              <a href="#opensource" className={`${headerTextColor === "text-white" ? "hover:text-white" : "hover:text-[#8a7af8]"} transition-colors`}>
+              <a
+                href="#opensource"
+                className={isAtTop ? "hover:text-white" : "hover:text-slate-900"}
+              >
                 Open Source
               </a>
-      
-        
             </nav>
-            {/* <button className={`rounded-full ${headerTextColor === "text-white" ? "border-white/40 text-white/90 hover:text-white" : "border-[#8a7af8]/40 text-[#8a7af8]/90 hover:text-[#8a7af8]"} border px-4 py-1 text-base transition-colors`}>
-              English
-            </button> */}
           </div>
         </div>
       </header>
@@ -566,14 +578,14 @@ export default function Home() {
             <footer id="contact" className="relative mx-auto w-full max-w-6xl pt-8 border-t border-white/20 z-10">
               <div className="flex flex-wrap items-center justify-between gap-3 text-base text-white/90">
                 <p>© {new Date().getFullYear()} XChat. All rights reserved.</p>
-                <div className="flex gap-4">
+                {/* <div className="flex gap-4">
                   <a href="#" className="hover:text-white">
                     Terms
                   </a>
                   <a href="#" className="hover:text-white">
                     Privacy
                   </a>
-                </div>
+                </div> */}
               </div>
             </footer>
           </section>
