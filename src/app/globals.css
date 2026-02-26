@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f8ff;
+  --foreground: #0f172a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-noto-sans-sc);
+  --font-mono: var(--font-noto-sans-sc);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  background: linear-gradient(180deg, #c084fc 0%, #818cf8 100%);
+  color: var(--foreground);
+  font-family: var(--font-noto-sans-sc), system-ui, -apple-system, sans-serif;
+}
+
+::selection {
+  background: #c084fc;
+  color: #fff;
+}
+
+@keyframes feature-card {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feature-card {
+  animation: feature-card 0.6s ease forwards;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes scroll-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(100vw);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scroll-down {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes scroll-up {
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes scroll-diagonal-tl-br {
+  from {
+    transform: translate(-100%, -100%);
+  }
+  to {
+    transform: translate(100vw, 100vh);
+  }
+}
+
+@keyframes scroll-diagonal-tr-bl {
+  from {
+    transform: translate(100vw, -100%);
+  }
+  to {
+    transform: translate(-100%, 100vh);
+  }
+}
+
+.bg-text-scroll-right {
+  animation: scroll-right 30s linear infinite;
+}
+
+.bg-text-scroll-left {
+  animation: scroll-left 35s linear infinite;
+}
+
+.bg-text-scroll-down {
+  animation: scroll-down 40s linear infinite;
+}
+
+.bg-text-scroll-up {
+  animation: scroll-up 38s linear infinite;
+}
+
+.bg-text-scroll-diagonal-1 {
+  animation: scroll-diagonal-tl-br 45s linear infinite;
+}
+
+.bg-text-scroll-diagonal-2 {
+  animation: scroll-diagonal-tr-bl 42s linear infinite;
+}
+
+@keyframes scroll-diagonal-bl-tr {
+  from {
+    transform: translate(-100%, 100vh);
+  }
+  to {
+    transform: translate(100vw, -100%);
+  }
+}
+
+.bg-text-scroll-diagonal-bl-tr {
+  animation: scroll-diagonal-bl-tr 15s linear infinite;
+}
+
+.bg-text-scroll-diagonal-tr-bl {
+  animation: scroll-diagonal-tr-bl 15s linear infinite;
+}
+
+@keyframes carousel-scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.carousel-scroll {
+  animation: carousel-scroll-left 7.5s linear infinite;
+}
+
+@keyframes x-logo-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.x-logo-spin {
+  animation: x-logo-rotate 5s linear infinite;
+}
