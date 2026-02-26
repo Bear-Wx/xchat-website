@@ -2,6 +2,13 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import friendImage from "@/app/assets/images/friend.png";
+import chatIcon from "@/app/assets/images/chat.png";
+import privacyTeamImage from "@/app/assets/images/privacy_team.png";
+import privateIcon from "@/app/assets/images/private.png";
+import journalistImage from "@/app/assets/images/journalist.png";
+import researcherIcon from "@/app/assets/images/saas-researcher-a.png";
+import communityIcon from "@/app/assets/images/community.png";
 
 
 const downloadButtons = [
@@ -53,6 +60,15 @@ const whyFeatureCards = [
     badge: "03",
     image: "/img/illustration22.png",
   },
+];
+
+const keyFeatures = [
+  { title: "Switch circles in one tap", desc: "Seamlessly move between friends, family, and work—each circle stays separate.", icon: "circles" },
+  { title: "No phone or email", desc: "Key-based identity on open protocols. No centralized account required.", icon: "key" },
+  { title: "End-to-end encryption", desc: "Messages and media encrypted. Only you and your circle can read them.", icon: "lock" },
+  { title: "Your data, your choice", desc: "Custom relays and file servers. Local encrypted storage you control.", icon: "storage" },
+  { title: "Two-way delete", desc: "Delete messages and media for everyone. No leftover copies.", icon: "delete" },
+  { title: "No tracking, no collection", desc: "We don’t track users or collect your data. Fully open source.", icon: "shield" },
 ];
 
 const appScreenshots = [
@@ -226,9 +242,7 @@ export default function Home() {
                 Safe, simple, and private messaging for the people who matter
               </h1>
               <p className="text-lg text-white/90">
-                No phone numbers. No tracking. No middlemen. Just you, your keys, and the people you
-                trust. Built on Nostr&apos;s decentralized network, XChat gives you back what Big Tech
-                took away—real privacy, real control, real freedom.
+                Switch between friends, family, and work in one tap—each circle stays separate and undisturbed. Built on Nostr, no phone number or email needed; your identity is your keys, and you decide where your data lives. Made for small, trusted circles where privacy and clear boundaries matter.
               </p>
               <div id="download" className="grid grid-cols-2 gap-4 max-w-md">
                 {downloadButtons.map((btn) => (
@@ -263,6 +277,137 @@ export default function Home() {
               </div>
             </div>
             </div>
+            </div>
+          </section>
+
+
+          {/* --- WHY XCHAT --- */}
+          <section id="why-xchat" className="py-24 bg-white relative overflow-hidden">
+            <div className="container relative mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-16 items-center">
+              <div className="order-2 md:order-1 relative rounded-2xl overflow-hidden aspect-square md:aspect-auto md:h-[600px] border border-slate-200 shadow-lg">
+                <Image
+                  src="https://images.unsplash.com/photo-1761435739748-879d2ecf0c70?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwZnJpZW5kcyUyMGNoYXR0aW5nJTIwb3V0ZG9vcnN8ZW58MXx8fHwxNzcyMDgyNjM1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  alt="Community interaction"
+                  width={1080}
+                  height={1080}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="order-1 md:order-2 space-y-8">
+                <h2 className="text-3xl md:text-5xl font-bold text-slate-900">
+                  Why choose <span className="text-[#8a7af8]">XChat</span>?
+                </h2>
+
+                <div className="space-y-6">
+                  <div className="flex gap-4">
+                    <div className="mt-1 bg-emerald-500/10 p-2 rounded-lg h-fit">
+                      <svg className="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.187-.382-3.208z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-slate-900 mb-2">Clear boundaries</h3>
+                      <p className="text-slate-600">
+                        XChat is built for people who want clear boundaries between conversations—not one endless feed. Your work, life, and interest circles stay completely separate.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="mt-1 bg-[#8a7af8]/10 p-2 rounded-lg h-fit">
+                      <svg className="w-6 h-6 text-[#8a7af8]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-slate-900 mb-2">You control the interaction</h3>
+                      <p className="text-slate-600">
+                        By splitting communication into separate circles and removing centralized identifiers, XChat keeps your conversations private, intentional, and in your control—no complicated setup.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* --- AUDIENCE SECTION --- */}
+          <section id="audience" className="py-24 bg-gradient-to-br from-[#c084fc] to-[#818cf8] relative overflow-hidden">
+            {/* Background - same as Built on Open Protocols */}
+            <div className="pointer-events-none absolute inset-0 overflow-hidden">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[480px] w-[480px] rounded-full bg-gradient-to-br from-[#c084fc]/40 to-[#818cf8]/30 blur-3xl" />
+              <div className="absolute left-[-200px] top-1/3 h-[360px] w-[360px] rounded-full bg-gradient-to-br from-[#818cf8]/20 to-transparent blur-3xl" />
+              <div className="absolute right-[-180px] top-[55%] h-[280px] w-[280px] rounded-full bg-gradient-to-br from-[#c084fc]/25 to-transparent blur-3xl" />
+            </div>
+
+            <div className="container relative mx-auto px-6 max-w-6xl z-10">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Who It's For</h2>
+                <p className="text-white/90">Whoever you are, if privacy matters to you, XChat is for you.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  {
+                    icon: (
+                      <Image src={chatIcon} alt="" width={32} height={32} className="w-8 h-8 object-contain" aria-hidden />
+                    ),
+                    title: "Friends & Family",
+                    desc: "Share moments safely without worrying about data leaks.",
+                    img: friendImage,
+                  },
+                  {
+                    icon: (
+                      <Image src={privateIcon} alt="" width={32} height={32} className="w-8 h-8 object-contain" aria-hidden />
+                    ),
+                    title: "Private Teams",
+                    desc: "Keep work private. Protect business secrets.",
+                    img: privacyTeamImage,
+                  },
+                  {
+                    icon: (
+                      <Image src={researcherIcon} alt="" width={32} height={32} className="w-8 h-8 object-contain" aria-hidden />
+                    ),
+                    title: "Journalists & Researchers",
+                    desc: "Protect sources and keep your channels from being monitored.",
+                    img: journalistImage,
+                  },
+                  {
+                    icon: (
+                      <Image src={communityIcon} alt="" width={32} height={32} className="w-8 h-8 object-contain" aria-hidden />
+                    ),
+                    title: "Privacy Communities",
+                    desc: "Build small, trusted decentralized communities.",
+                    img: "https://images.unsplash.com/photo-1692607431230-5fabd2b717cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+                  },
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="relative group overflow-hidden rounded-2xl bg-slate-800 aspect-[3/4] cursor-pointer transition-transform duration-300 hover:-translate-y-2.5"
+                  >
+                    <Image
+                      src={item.img}
+                      alt={item.title}
+                      width={400}
+                      height={533}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity duration-500"
+                    />
+                    {/* Gradient overlay for text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent pointer-events-none" />
+                    {/* Bottom block: icon + title at bottom, moves up on hover to reveal description */}
+                    <div className="absolute bottom-0 left-0 w-full px-4 pt-8 transition-transform duration-300 ease-out group-hover:-translate-y-6">
+                      <div className="mb-3">
+                        {item.icon}
+                      </div>
+                      <h3 className="text-base font-bold text-white mb-2 flex items-end leading-tight">{item.title}</h3>
+                      <p className="text-slate-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
 
@@ -373,9 +518,9 @@ export default function Home() {
               <p className="text-lg text-white/80 max-w-2xl mx-auto mb-4">
                 Powered by Nostr and MLS protocols. No proprietary servers. No vendor lock-in. Just pure, open-source technology.
               </p>
-              <a href="#" className="inline-block text-base text-white/80 hover:text-white transition-colors underline underline-offset-4">
+              {/* <a href="#" className="inline-block text-base text-white/80 hover:text-white transition-colors underline underline-offset-4">
                 Learn more →
-              </a>
+              </a> */}
             </div>
             <div className="mx-auto max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             {useCaseScenarios.map((scenario, idx) => {
@@ -406,14 +551,14 @@ export default function Home() {
 
           <section id="features" className="min-h-screen flex items-center px-4 py-20 scroll-snap-align-start bg-white relative">
             <div className="relative mx-auto w-full max-w-6xl z-10">
-            <div className="space-y-8 rounded-[40px] border border-slate-200 bg-white p-6 lg:p-10 shadow-lg">
+            <div className="space-y-10 rounded-[40px] border border-slate-200 bg-white p-6 lg:p-10 shadow-lg">
             <div className="flex flex-col gap-3 text-center">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-600">
-                PERFECT FOR
+                WHAT YOU GET
               </p>
-              <h3 className="text-3xl sm:text-4xl font-bold text-slate-900">Built for the people who matter</h3>
-              <p className="text-lg text-slate-700">
-                Whether it's your family, close friends, or your private circle—XChat keeps your conversations secure and intimate.
+              <h3 className="text-3xl sm:text-4xl font-bold text-slate-900">Key Features</h3>
+              <p className="text-lg text-slate-700 max-w-2xl mx-auto">
+                Privacy-first capabilities built into every part of XChat—without sacrificing simplicity.
               </p>
               <a
                 href="#home"
@@ -422,51 +567,31 @@ export default function Home() {
                 Download now →
               </a>
             </div>
-            <div className="grid gap-6 md:grid-cols-3">
-              {whyFeatureCards.map((card, idx) => {
-                const illustrations = [
-                  // Family
-                  <Image
-                    key="family"
-                    src="/img/AbstractFamily.png"
-                    alt="Family"
-                    width={200}
-                    height={200}
-                    className="w-full h-full object-contain"
-                  />,
-                  // Friends
-                  <Image
-                    key="friends"
-                    src="/img/AbstractFriends.png"
-                    alt="Friends"
-                    width={200}
-                    height={200}
-                    className="w-full h-full object-contain"
-                  />,
-                  // Privacy-conscious individuals
-                  <Image
-                    key="privacy"
-                    src="/img/AbstractPrivacy.png"
-                    alt="Privacy"
-                    width={200}
-                    height={200}
-                    className="w-full h-full object-contain"
-                  />,
-                ];
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {keyFeatures.map((item) => {
+                const Icon = () => {
+                  const cls = "w-6 h-6";
+                  if (item.icon === "circles") return <svg className={cls} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>;
+                  if (item.icon === "key") return <svg className={cls} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" /></svg>;
+                  if (item.icon === "lock") return <svg className={cls} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>;
+                  if (item.icon === "storage") return <svg className={cls} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" /></svg>;
+                  if (item.icon === "delete") return <svg className={cls} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>;
+                  return <svg className={cls} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.187-.382-3.208z" /></svg>;
+                };
                 return (
                 <div
-                  key={card.title}
-                  className="flex flex-col gap-4 rounded-3xl border border-slate-100 bg-gradient-to-br from-[#c084fc]/10 to-[#818cf8]/10 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  key={item.title}
+                  className="flex gap-4 rounded-2xl border border-slate-100 bg-gradient-to-br from-[#c084fc]/5 to-[#818cf8]/5 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <div className="relative mx-auto h-[200px] w-[200px] flex items-center justify-center transition-transform duration-300 hover:scale-105">
-                    {illustrations[idx]}
+                  <div className="flex-shrink-0 mt-0.5 bg-[#8a7af8]/10 p-2.5 rounded-xl h-fit text-[#8a7af8]">
+                    <Icon />
                   </div>
-                  <h4 className="text-xl font-bold text-slate-900 text-center">
-                    {card.title}
-                  </h4>
-                  <p className="text-base text-slate-700 text-center">{card.desc}</p>
+                  <div>
+                    <h4 className="text-base font-bold text-slate-900 mb-1">{item.title}</h4>
+                    <p className="text-sm text-slate-600">{item.desc}</p>
+                  </div>
                 </div>
-              )})}
+              );})}
             </div>
             </div>
             </div>
@@ -537,7 +662,7 @@ export default function Home() {
                 <span className="font-semibold">Go to GitHub</span>
                 <span>→</span>
               </a>
-              <a
+              {/* <a
                 href="#contact"
                 className="flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-slate-900 transition-all hover:bg-slate-100 hover:scale-105"
               >
@@ -557,7 +682,7 @@ export default function Home() {
                 </svg>
                 <span className="font-semibold">Talk to a team member</span>
                 <span>→</span>
-              </a>
+              </a> */}
             </div>
             <div className="pt-8">
               <p className="text-base font-medium text-white/90 mb-3 text-center uppercase">SUPPORTED BY</p>
@@ -576,7 +701,7 @@ export default function Home() {
             </div>
             </div>
             <footer id="contact" className="relative mx-auto w-full max-w-6xl pt-8 border-t border-white/20 z-10">
-              <div className="flex flex-wrap items-center justify-between gap-3 text-base text-white/90">
+              <div className="flex flex-wrap items-center justify-center gap-3 text-base text-white/90">
                 <p>© {new Date().getFullYear()} XChat. All rights reserved.</p>
                 {/* <div className="flex gap-4">
                   <a href="#" className="hover:text-white">
