@@ -143,9 +143,9 @@ export default function Home() {
             : "bg-white/90 text-slate-800 shadow-sm"
         }`}
       >
-        <div className="mx-auto w-full max-w-6xl px-4">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="flex flex-1 items-center">
+        <div className="mx-auto w-full max-w-7xl px-4">
+          <div className="flex flex-nowrap items-center justify-between gap-6">
+            <div className="flex flex-shrink-0 items-center">
               <div className="flex items-center gap-2">
                 {/* X symbol with rounded ends */}
                 <svg
@@ -167,40 +167,17 @@ export default function Home() {
               </div>
             </div>
             <nav
-              className={`flex flex-1 items-center justify-end gap-6 text-base font-medium transition-colors duration-300 ${
+              className={`flex flex-1 min-w-0 items-center justify-end gap-5 text-sm font-medium transition-colors duration-300 sm:gap-6 sm:text-base ${
                 isAtTop ? "text-white/90" : "text-slate-700"
               }`}
             >
-              <a
-                href="#home"
-                className={isAtTop ? "hover:text-white" : "hover:text-slate-900"}
-              >
-                Home
-              </a>
-              <a
-                href="#experience"
-                className={isAtTop ? "hover:text-white" : "hover:text-slate-900"}
-              >
-                Experience
-              </a>
-              <a
-                href="#about"
-                className={isAtTop ? "hover:text-white" : "hover:text-slate-900"}
-              >
-                Technical
-              </a>
-              <a
-                href="#features"
-                className={isAtTop ? "hover:text-white" : "hover:text-slate-900"}
-              >
-                For You
-              </a>
-              <a
-                href="#opensource"
-                className={isAtTop ? "hover:text-white" : "hover:text-slate-900"}
-              >
-                Open Source
-              </a>
+              <a href="#home" className={`whitespace-nowrap ${isAtTop ? "hover:text-white" : "hover:text-slate-900"}`}>Home</a>
+              <a href="#why-xchat" className={`whitespace-nowrap ${isAtTop ? "hover:text-white" : "hover:text-slate-900"}`}>Why Choose</a>
+              <a href="#audience" className={`whitespace-nowrap ${isAtTop ? "hover:text-white" : "hover:text-slate-900"}`}>For You</a>
+              <a href="#experience" className={`whitespace-nowrap ${isAtTop ? "hover:text-white" : "hover:text-slate-900"}`}>Experience</a>
+              <a href="#about" className={`whitespace-nowrap ${isAtTop ? "hover:text-white" : "hover:text-slate-900"}`}>Tech</a>
+              <a href="#features" className={`whitespace-nowrap ${isAtTop ? "hover:text-white" : "hover:text-slate-900"}`}>Features</a>
+              <a href="#opensource" className={`whitespace-nowrap ${isAtTop ? "hover:text-white" : "hover:text-slate-900"}`}>Open</a>
             </nav>
           </div>
         </div>
@@ -332,13 +309,34 @@ export default function Home() {
             </div>
           </section>
 
-          {/* --- AUDIENCE SECTION --- */}
+          {/* --- AUDIENCE SECTION (Who It's For) --- */}
           <section id="audience" className="py-24 bg-gradient-to-br from-[#c084fc] to-[#818cf8] relative overflow-hidden">
-            {/* Background - same as Built on Open Protocols */}
+            {/* Background blur orbs - same as Built on Open Protocols */}
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[480px] w-[480px] rounded-full bg-gradient-to-br from-[#c084fc]/40 to-[#818cf8]/30 blur-3xl" />
               <div className="absolute left-[-200px] top-1/3 h-[360px] w-[360px] rounded-full bg-gradient-to-br from-[#818cf8]/20 to-transparent blur-3xl" />
               <div className="absolute right-[-180px] top-[55%] h-[280px] w-[280px] rounded-full bg-gradient-to-br from-[#c084fc]/25 to-transparent blur-3xl" />
+            </div>
+            {/* Background scrolling text - same effect as Built on Open Protocols */}
+            <div className="pointer-events-none absolute inset-0 overflow-hidden">
+              <div
+                className="absolute bg-text-scroll-right whitespace-nowrap"
+                style={{ top: "20%", animationDuration: "18s", animationDelay: "0s" }}
+              >
+                <span className="text-[120px] font-extrabold text-white/10 select-none">PRIVACY</span>
+              </div>
+              <div
+                className="absolute bg-text-scroll-left whitespace-nowrap"
+                style={{ top: "45%", animationDuration: "20s", animationDelay: "0s" }}
+              >
+                <span className="text-[120px] font-extrabold text-white/10 select-none">CIRCLES</span>
+              </div>
+              <div
+                className="absolute bg-text-scroll-diagonal-tr-bl whitespace-nowrap"
+                style={{ top: "70%" }}
+              >
+                <span className="text-[120px] font-extrabold text-white/10 select-none">XCHAT</span>
+              </div>
             </div>
 
             <div className="container relative mx-auto px-6 max-w-6xl z-10">
