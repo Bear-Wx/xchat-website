@@ -17,6 +17,11 @@ html {
   scroll-snap-type: y mandatory;
 }
 
+/* Offset anchor scroll for fixed header */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
 body {
   overflow-y: scroll;
   scroll-snap-type: y mandatory;

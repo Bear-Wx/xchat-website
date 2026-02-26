@@ -152,36 +152,28 @@ export default function Home() {
                 <span className="font-extrabold text-xl">Chat</span>
               </div>
             </div>
-            <nav className={`flex flex-1 items-center justify-center gap-6 text-base font-medium ${headerTextColor === "text-white" ? "text-white/90" : "text-[#8a7af8]/90"} transition-colors duration-300`}>
-              <a href="#" className={`${headerTextColor === "text-white" ? "hover:text-white" : "hover:text-[#8a7af8]"} transition-colors`}>
+            <nav className={`flex flex-1 items-center justify-end gap-6 text-base font-medium ${headerTextColor === "text-white" ? "text-white/90" : "text-[#8a7af8]/90"} transition-colors duration-300`}>
+              <a href="#home" className={`${headerTextColor === "text-white" ? "hover:text-white" : "hover:text-[#8a7af8]"} transition-colors`}>
                 Home
               </a>
-              <a href="#" className={`${headerTextColor === "text-white" ? "hover:text-white" : "hover:text-[#8a7af8]"} transition-colors`}>
-                Document
+              <a href="#experience" className={`${headerTextColor === "text-white" ? "hover:text-white" : "hover:text-[#8a7af8]"} transition-colors`}>
+                Experience
               </a>
-              <a href="#contact" className="flex items-center gap-2 text-yellow-400 hover:text-yellow-300 transition-colors font-semibold">
-                <Image
-                  src="/img/lightning.png"
-                  alt="Lightning"
-                  width={16}
-                  height={16}
-                  className="w-4 h-4"
-                />
-                Zap us
+              <a href="#about" className={`${headerTextColor === "text-white" ? "hover:text-white" : "hover:text-[#8a7af8]"} transition-colors`}>
+                Technical
               </a>
-              <a
-                href="https://github.com/xchat-app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${headerTextColor === "text-white" ? "hover:text-white" : "hover:text-[#8a7af8]"} transition-colors`}
-                aria-label="GitHub"
-              >
-                GitHub
+              <a href="#features" className={`${headerTextColor === "text-white" ? "hover:text-white" : "hover:text-[#8a7af8]"} transition-colors`}>
+                For You
               </a>
+              <a href="#opensource" className={`${headerTextColor === "text-white" ? "hover:text-white" : "hover:text-[#8a7af8]"} transition-colors`}>
+                Open Source
+              </a>
+      
+        
             </nav>
-            <button className={`rounded-full ${headerTextColor === "text-white" ? "border-white/40 text-white/90 hover:text-white" : "border-[#8a7af8]/40 text-[#8a7af8]/90 hover:text-[#8a7af8]"} border px-4 py-1 text-base transition-colors`}>
+            {/* <button className={`rounded-full ${headerTextColor === "text-white" ? "border-white/40 text-white/90 hover:text-white" : "border-[#8a7af8]/40 text-[#8a7af8]/90 hover:text-[#8a7af8]"} border px-4 py-1 text-base transition-colors`}>
               English
-            </button>
+            </button> */}
           </div>
         </div>
       </header>
@@ -262,7 +254,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="min-h-screen flex items-center px-4 py-20 scroll-snap-align-start bg-white relative">
+          <section id="experience" className="min-h-screen flex items-center px-4 py-20 scroll-snap-align-start bg-white relative">
             <div className="relative mx-auto w-full max-w-7xl z-10">
               <div className="text-center mb-12">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
@@ -400,7 +392,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="min-h-screen flex items-center px-4 py-20 scroll-snap-align-start bg-white relative">
+          <section id="features" className="min-h-screen flex items-center px-4 py-20 scroll-snap-align-start bg-white relative">
             <div className="relative mx-auto w-full max-w-6xl z-10">
             <div className="space-y-8 rounded-[40px] border border-slate-200 bg-white p-6 lg:p-10 shadow-lg">
             <div className="flex flex-col gap-3 text-center">
@@ -468,7 +460,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="min-h-screen flex flex-col justify-between px-4 py-20 scroll-snap-align-start bg-gradient-to-br from-[#c084fc] to-[#818cf8] relative">
+          <section id="opensource" className="min-h-screen flex flex-col justify-between px-4 py-20 scroll-snap-align-start bg-gradient-to-br from-[#c084fc] to-[#818cf8] relative">
             {/* Background decorations for fifth page */}
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[480px] w-[480px] rounded-full bg-gradient-to-br from-[#c084fc]/40 to-[#818cf8]/30 blur-3xl" />
