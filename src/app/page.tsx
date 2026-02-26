@@ -5,10 +5,10 @@ import { useState, useEffect } from "react";
 
 
 const downloadButtons = [
-  { label: "App Store", image: "/img/app_store_icon.431fa28d.png" },
-  { label: "Google Play", image: "/img/google_play_black_icon.6a443fcf.png" },
-  { label: "TestFlight", image: "/img/testFlight_icon.fb7707ec.png" },
-  { label: "APK", image: "/img/apk_icon.ab625a1a.png" },
+  { label: "App Store", image: "/img/app_store_icon.431fa28d.png", downloadUrl: "https://apps.apple.com/us/app/xchat-private-circles/id6747972868" },
+  { label: "Google Play", image: "/img/google_play_black_icon.6a443fcf.png", downloadUrl: "https://play.google.com/store/apps/details?id=com.oxchat.lite" },
+  { label: "TestFlight", image: "/img/testFlight_icon.fb7707ec.png", downloadUrl: "https://testflight.apple.com/join/AjrmCAba" },
+  { label: "APK", image: "/img/apk_icon.ab625a1a.png", downloadUrl: "https://github.com/xchat-app/xchat-app-main/releases" },
 ];
 
 const useCaseScenarios = [
@@ -230,7 +230,8 @@ export default function Home() {
                 {downloadButtons.map((btn) => (
                   <a
                     key={btn.label}
-                    href="#"
+                    href={btn.downloadUrl}
+                    target="_blank"
                     className="block w-full rounded-[12px] border border-transparent transition hover:-translate-y-1"
                   >
                     <Image
